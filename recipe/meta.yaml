@@ -14,7 +14,7 @@ source:
     - stdc_format.patch
 
 build:
-  number: 3
+  number: 4
   skip: true  # [not linux]
   ignore_run_exports:
     - elfutils
@@ -25,14 +25,12 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-
   host:
-    - boost-cpp
+    - libboost-devel
     - libunwind
     - elfutils
-
+    - zlib
   run:
-    - boost-cpp
     - libunwind
     - elfutils
 
