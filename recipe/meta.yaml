@@ -25,12 +25,11 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-
   host:
     - libboost-devel
     - libunwind
     - elfutils
-
+    - zlib
   run:
     - libunwind
     - elfutils
