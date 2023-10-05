@@ -18,3 +18,5 @@ libunwind:
 - '1.6'
 target_platform:
 - linux-64
+zlib:
+- '1.2'
