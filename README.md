@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/heaptrack-feeds
 
 Home: https://github.com/KDE/heaptrack
 
-Package license: LGPL-2.1-or-later
+Package license: GPL-2.0-or-later
 
 Summary: heaptrack - a heap memory profiler for Linux
 
