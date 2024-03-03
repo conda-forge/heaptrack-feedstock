@@ -15,10 +15,12 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 elfutils:
-- '0.189'
+- '0.191'
 libboost_devel:
 - '1.82'
 libunwind:
 - '1.6'
 target_platform:
 - linux-aarch64
+zlib:
+- '1.2'
