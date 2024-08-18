@@ -21,7 +21,7 @@ docker_image:
 elfutils:
 - '0.191'
 libboost_devel:
-- '1.84'
+- '1.86'
 libunwind:
 - '1.6'
 target_platform:
