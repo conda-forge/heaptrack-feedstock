@@ -15,11 +15,11 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '12'
+- '13'
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 elfutils:
-- '0.191'
+- '0.192'
 libboost_devel:
 - '1.84'
 libunwind:
