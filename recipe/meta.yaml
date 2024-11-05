@@ -13,7 +13,7 @@ source:
     - stdc_format.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
   ignore_run_exports:
     - elfutils
