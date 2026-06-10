@@ -1,0 +1,14 @@
+The bundled 3rdparty/robin-map declares cmake_minimum_required(VERSION 3.1).
+CMake 4 removes compatibility with versions < 3.5 and refuses to configure.
+Bump the minimum to 3.5, matching the spirit of upstream KDE/heaptrack
+commit c8772730a3e188a0ac30d820ee51a0419c7618ed (which carried this fix
+inside a larger robin-map v1.3.0 import).
+
+--- 3rdparty/robin-map/CMakeLists.txt.orig
++++ 3rdparty/robin-map/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1)
++cmake_minimum_required(VERSION 3.5)
+
+ project(tsl-robin-map VERSION 1.2.1 LANGUAGES CXX)
+
