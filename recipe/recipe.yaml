@@ -1,0 +1,66 @@
+schema_version: 1
+
+context:
+  name: heaptrack
+  version: "1.5.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/KDE/heaptrack/archive/v${{ version }}.tar.gz
+  sha256: 44e6aefc13460556acced7192bf3600605cd7a5f3a46e670c3127aeae97e19dd
+  target_directory: source
+  patches:
+    - stdc_format.patch
+    - find_libunwind_pointer_type.patch
+    - robin_map_cmake_min_version.patch
+    - fix_build_with_boost_1.89.patch
+
+build:
+  number: 3
+  # ppc64le was dropped due to lack of maintainer interest
+  # https://github.com/conda-forge/conda-forge.github.io/issues/2510
+  skip: ppc64le or not linux
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - cmake
+    - make
+  host:
+    - libboost-devel
+    - libunwind
+    - elfutils
+    - zlib
+  run:
+    - libunwind
+    - elfutils
+  ignore_run_exports:
+    by_name:
+      - elfutils
+
+tests:
+  - script:
+      - heaptrack_print --help
+
+about:
+  license: GPL-2.0-or-later
+  license_file: source/LICENSES/GPL-2.0-or-later.txt
+  summary: heaptrack - a heap memory profiler for Linux
+  description: |
+    Heaptrack traces all memory allocations and annotates these events with stack traces. Dedicated analysis tools then allow you to interpret the heap memory profile to:
+    find hotspots that need to be optimized to reduce the memory footprint of your application
+    find memory leaks, i.e. locations that allocate memory which is never deallocated
+    find allocation hotspots, i.e. code locations that trigger a lot of memory allocation calls
+    find temporary allocations, which are allocations that are directly followed by their deallocation
+  homepage: https://github.com/KDE/heaptrack
+  repository: https://github.com/KDE/heaptrack
+  documentation: https://userbase.kde.org/Heaptrack
+
+extra:
+  recipe-maintainers:
+    - bcouturi
+    - chrisburr
