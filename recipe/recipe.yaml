@@ -16,10 +16,13 @@ source:
     - stdc_format.patch
     - find_libunwind_pointer_type.patch
     - robin_map_cmake_min_version.patch
+    - fix_build_with_boost_1.89.patch
 
 build:
   number: 3
-  skip: not linux
+  # ppc64le was dropped due to lack of maintainer interest
+  # https://github.com/conda-forge/conda-forge.github.io/issues/2510
+  skip: ppc64le or not linux
 
 requirements:
   build:
