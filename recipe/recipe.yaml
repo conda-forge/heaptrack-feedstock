@@ -19,7 +19,7 @@ source:
     - fix_build_with_boost_1.89.patch
 
 build:
-  number: 3
+  number: 4
   # ppc64le was dropped due to lack of maintainer interest
   # https://github.com/conda-forge/conda-forge.github.io/issues/2510
   skip: ppc64le or not linux
